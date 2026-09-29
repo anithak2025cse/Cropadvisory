@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Regions - CropAdvisor</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7f6;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #198754;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th,
+        td {
+            padding: 14px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #e9f2ec;
+        }
+
+        .empty {
+            text-align: center;
+            color: #777;
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a class="back" href="/">← Back to Dashboard</a>
+
+    <h1>🌍 Regions</h1>
+
+    <table>
+
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Region Name</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr th:each="region : ${regions}">
+            <td th:text="${region.id}"></td>
+            <td th:text="${region.name}"></td>
+        </tr>
+
+        <tr th:if="${#lists.isEmpty(regions)}">
+            <td colspan="2" class="empty">
+                No regions found.
+            </td>
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+
+</html>

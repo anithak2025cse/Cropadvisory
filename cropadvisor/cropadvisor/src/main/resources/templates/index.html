@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropAdvisor | Smart Agriculture Platform</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">🌱</div>
+      <div><strong>CropAdvisor</strong><span>Smart Agriculture</span></div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-label">MAIN MENU</div>
+      <a class="nav-item active" href="/"><span>⌂</span> Dashboard</a>
+      <a class="nav-item" href="/farmers"><span>♙</span> Farmers</a>
+      <a class="nav-item" href="/officers"><span>◉</span> Officers</a>
+      <a class="nav-item" href="/regions"><span>⌖</span> Regions</a>
+      <a class="nav-item" href="/tickets"><span>◫</span> Support Tickets</a>
+
+      <div class="nav-label">AGRICULTURE</div>
+      <a class="nav-item" href="/crop-advisory"><span>♧</span> Crop Advisory</a>
+      <a class="nav-item" href="/weather"><span>☁</span> Weather</a>
+      <a class="nav-item" href="/reports"><span>▥</span> Reports</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="help-card">
+        <div class="help-icon">?</div>
+        <div><b>Need help?</b><small>Contact support team</small></div>
+      </div>
+      <div class="profile-mini">
+        <div class="avatar">AD</div>
+        <div><b>Administrator</b><small>System Admin</small></div>
+        <span>⋮</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="search"><span>⌕</span><input id="search" placeholder="Search farmers, tickets, regions..."></div>
+      <div class="top-actions">
+        <button class="icon-btn" title="Notifications">♢<i></i></button>
+        <div class="top-profile"><div class="avatar small">AD</div><div><b>Admin</b><small>Administrator</small></div><span>⌄</span></div>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="welcome">
+        <div>
+          <p class="eyebrow">MONDAY, SEPTEMBER 28, 2026</p>
+          <h1>Good morning, Administrator 👋</h1>
+          <p>Here’s what is happening across your agricultural advisory network.</p>
+        </div>
+        <button class="primary-btn" onclick="showToast('New farmer form is ready to connect.')">＋ Add Farmer</button>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <div class="stat-icon green">♙</div>
+          <div><span>Total Farmers</span><h2>1,248</h2><small class="up">↗ 12.8% <em>vs last month</em></small></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon blue">◉</div>
+          <div><span>Field Officers</span><h2>42</h2><small class="up">↗ 4.5% <em>vs last month</em></small></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon amber">◫</div>
+          <div><span>Open Tickets</span><h2>86</h2><small class="down">↘ 8.2% <em>vs last month</em></small></div>
+        </article>
+        <article class="stat-card">
+          <div class="stat-icon purple">⌖</div>
+          <div><span>Active Regions</span><h2>18</h2><small class="up">↗ 2 new <em>this quarter</em></small></div>
+        </article>
+      </div>
+
+      <div class="grid-two">
+        <section class="panel chart-panel">
+          <div class="panel-head">
+            <div><h3>Farmer Registrations</h3><p>Monthly registration activity</p></div>
+            <select><option>Last 6 months</option><option>Last 12 months</option></select>
+          </div>
+          <div class="chart">
+            <div class="y-labels"><span>400</span><span>300</span><span>200</span><span>100</span><span>0</span></div>
+            <div class="bars">
+              <div><i style="height:38%"></i><b>Apr</b></div>
+              <div><i style="height:53%"></i><b>May</b></div>
+              <div><i style="height:47%"></i><b>Jun</b></div>
+              <div><i style="height:68%"></i><b>Jul</b></div>
+              <div><i style="height:61%"></i><b>Aug</b></div>
+              <div><i class="current" style="height:86%"></i><b>Sep</b></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><div><h3>Ticket Overview</h3><p>Current support status</p></div><a href="/tickets">View all →</a></div>
+          <div class="ticket-summary">
+            <div class="donut"><div><strong>86</strong><span>Total</span></div></div>
+            <div class="legend">
+              <p><i class="dot green-dot"></i>Resolved <b>54</b></p>
+              <p><i class="dot amber-dot"></i>In Progress <b>20</b></p>
+              <p><i class="dot red-dot"></i>Open <b>12</b></p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="grid-two lower">
+        <section class="panel">
+          <div class="panel-head"><div><h3>Recent Farmers</h3><p>Latest registrations</p></div><a href="/farmers">View all →</a></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>FARMER</th><th>LOCATION</th><th>CROP</th><th>STATUS</th></tr></thead>
+              <tbody>
+                <tr><td><div class="person"><div class="avatar peach">RK</div><b>Ravi Kumar</b></div></td><td>Madurai</td><td>Rice</td><td><span class="badge success">Active</span></td></tr>
+                <tr><td><div class="person"><div class="avatar violet">PS</div><b>Priya S</b></div></td><td>Thanjavur</td><td>Sugarcane</td><td><span class="badge success">Active</span></td></tr>
+                <tr><td><div class="person"><div class="avatar bluebg">MK</div><b>Mani Kumar</b></div></td><td>Tirunelveli</td><td>Maize</td><td><span class="badge pending">Pending</span></td></tr>
+                <tr><td><div class="person"><div class="avatar greenbg">AS</div><b>Arun S</b></div></td><td>Kovilpatti</td><td>Cotton</td><td><span class="badge success">Active</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel advisory">
+          <div class="panel-head"><div><h3>Today's Advisory</h3><p>Smart recommendations</p></div><span class="weather">☀ 31°C</span></div>
+          <div class="advice-card"><div class="advice-icon">💧</div><div><b>Irrigation alert</b><p>Dry conditions expected in the next 48 hours. Consider advising farmers in high-risk regions to schedule irrigation.</p></div></div>
+          <div class="advice-card"><div class="advice-icon">🌾</div><div><b>Crop health</b><p>Rice cultivation areas should be monitored for common pest activity this week.</p></div></div>
+          <button class="outline-btn">View all advisories</button>
+        </section>
+      </div>
+    </section>
+  </main>
+</div>
+<div id="toast" class="toast"></div>
+<script src="/js/script.js"></script>
+</body>
+</html>
